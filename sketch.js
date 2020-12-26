@@ -31,7 +31,7 @@ function draw() {
         dog.addImage(happyDogimg);
     }
     if(keyWentUp(UP_ARROW)){
-     dog.addImage(dogimg);
+       dog.addImage(dogimg);
     }
 
     drawSprites();
@@ -40,7 +40,7 @@ function draw() {
     fill("black");
     strokeWeight(2);
     stroke("black");
-    text("Food Stock : " + count, 150, 150);
+    text("Food Stock : " + foodS, 150, 150);
     textSize(22);
     text("Note: Press UP_ARROW Key To Feed Drago Milk ", 10, 50);
 
@@ -52,6 +52,12 @@ function readStock(data) {
 }
 
 function writeStock(x) {
+    
+    
+    if(x>0){
+        x=x-1;
+    }
+
     database.ref('/').update({
     Food:x
 
